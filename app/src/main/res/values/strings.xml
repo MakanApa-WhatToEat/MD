@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MakanApa</string>
+    <string name="welcome">Welcome to MakanApa!</string>
+    <string name="welcome_description">MakanApa is an app that revolutionizes your dining experience. With its cutting-edge ingredient scanning technology, MakanApa provides personalized food recommendations, empowering you to explore exciting flavors and discover new culinary delights.</string>
+    <string name="login_button_name">Login</string>
+    <string name="register_button_name">Register</string>
+    <string name="register_title">Daftarkan diri Anda!</string>
+    <string name="login_title">Silahkan Login</string>
+</resources>
