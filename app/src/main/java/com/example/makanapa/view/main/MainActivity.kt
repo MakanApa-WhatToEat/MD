@@ -1,10 +1,10 @@
-package com.example.mystoryapp.view.main
+package com.example.makanapa.view.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.mystoryapp.R
-import com.example.mystoryapp.view.welcome.WelcomeActivity
+import com.example.makanapa.R
+import com.example.makanapa.view.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

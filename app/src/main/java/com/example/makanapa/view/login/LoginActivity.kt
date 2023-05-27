@@ -1,4 +1,4 @@
-package com.example.mystoryapp.view.login
+package com.example.makanapa.view.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -9,13 +9,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
 import android.view.View
-import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
-import com.example.mystoryapp.R
-import com.example.mystoryapp.databinding.ActivityLoginBinding
-import org.w3c.dom.Text
-import java.util.regex.Pattern
-import kotlin.math.log
+import com.example.makanapa.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 

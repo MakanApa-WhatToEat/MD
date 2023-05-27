@@ -1,4 +1,4 @@
-package com.example.mystoryapp
+package com.example.makanapa
 
 import org.junit.Test
 

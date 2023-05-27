@@ -1,13 +1,12 @@
-package com.example.mystoryapp.view.splash
+package com.example.makanapa.view.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.mystoryapp.R
-import com.example.mystoryapp.databinding.ActivitySplashBinding
-import com.example.mystoryapp.view.welcome.WelcomeActivity
+import com.example.makanapa.databinding.ActivitySplashBinding
+import com.example.makanapa.view.welcome.WelcomeActivity
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySplashBinding

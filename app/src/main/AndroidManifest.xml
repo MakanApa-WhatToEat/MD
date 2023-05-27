@@ -15,8 +15,13 @@
         android:theme="@style/Theme.MyStoryApp"
         tools:targetApi="31">
         <activity
+            android:name=".view.camera.CameraXActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.camera.CameraMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.main.MainActivity"
-
             android:exported="false" />
         <activity
             android:name=".view.welcome.WelcomeActivity"

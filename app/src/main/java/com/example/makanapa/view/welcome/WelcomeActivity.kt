@@ -1,4 +1,4 @@
-package com.example.mystoryapp.view.welcome
+package com.example.makanapa.view.welcome
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -6,10 +6,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import com.example.mystoryapp.databinding.ActivityWelcomeBinding
-import com.example.mystoryapp.view.login.LoginActivity
-import com.example.mystoryapp.view.register.RegisterActivity
+import com.example.makanapa.databinding.ActivityWelcomeBinding
+import com.example.makanapa.view.login.LoginActivity
+import com.example.makanapa.view.register.RegisterActivity
 
 class WelcomeActivity : AppCompatActivity() {
 

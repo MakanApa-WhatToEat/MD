@@ -1,4 +1,4 @@
-package com.example.mystoryapp.view.register
+package com.example.makanapa.view.register
 
 import android.content.Context
 import android.util.Log
@@ -6,9 +6,9 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mystoryapp.api.ApiConfig
-import com.example.mystoryapp.api.AuthBody
-import com.example.mystoryapp.model.RegisterResponse
+import com.example.makanapa.api.ApiConfig
+import com.example.makanapa.api.AuthBody
+import com.example.makanapa.model.RegisterResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

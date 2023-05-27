@@ -1,6 +1,5 @@
-package com.example.mystoryapp.view.register
+package com.example.makanapa.view.register
 
-import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -8,21 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.util.Patterns
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.mystoryapp.R
-import com.example.mystoryapp.api.ApiConfig
-import com.example.mystoryapp.api.AuthBody
-import com.example.mystoryapp.databinding.ActivityRegisterBinding
-import com.example.mystoryapp.model.RegisterResponse
-import com.example.mystoryapp.view.login.LoginActivity
-import com.example.mystoryapp.view.main.MainActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.makanapa.api.AuthBody
+import com.example.makanapa.databinding.ActivityRegisterBinding
+import com.example.makanapa.view.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 

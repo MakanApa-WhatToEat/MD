@@ -1,4 +1,4 @@
-package com.example.mystoryapp.api
+package com.example.makanapa.api
 
 data class AuthBody(
     val name : String,

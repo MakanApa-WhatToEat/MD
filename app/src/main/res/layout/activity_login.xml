@@ -25,7 +25,6 @@
         />
 
 
-
     <EditText
         android:id="@+id/et_login_email"
         android:layout_width="match_parent"
@@ -76,6 +75,7 @@
         android:alpha="0"
         android:text="@string/login_button_name"
         />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
