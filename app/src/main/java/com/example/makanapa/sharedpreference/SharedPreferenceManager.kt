@@ -9,14 +9,14 @@ class SharedPreferencesManager(context : Context) {
     private val editor : SharedPreferences.Editor = sharedPreferences.edit()
 
     fun saveToken(token : String, name : String, email : String){
-        editor.putString("token", token)
+        editor.putString("accessToken", token)
         editor.putString("username", name)
         editor.putString("email", email)
         editor.apply()
     }
 
     fun getToken() : String?{
-        return sharedPreferences.getString("token", null)
+        return sharedPreferences.getString("accessToken", null)
     }
 
     fun getUsername() : String?{
@@ -29,7 +29,7 @@ class SharedPreferencesManager(context : Context) {
 
 
     fun clearToken(){
-        editor.remove("token")
+        editor.remove("accessToken")
         editor.apply()
     }
 }

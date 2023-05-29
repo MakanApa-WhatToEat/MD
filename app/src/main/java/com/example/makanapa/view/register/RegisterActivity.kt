@@ -17,7 +17,7 @@ import com.example.makanapa.view.login.LoginActivity
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityRegisterBinding
-    private lateinit var viewModel : RegisterVIewModel
+    private lateinit var viewModel : RegisterViewModel
     private var isEmailValid = false
     private var isPasswordValid = false
 
@@ -26,7 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[RegisterVIewModel::class.java]
+        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
 
 
         playAnimation()
