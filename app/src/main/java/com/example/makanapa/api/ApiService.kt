@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
+
 interface ApiService {
 
 
@@ -18,5 +19,6 @@ interface ApiService {
     fun postLogin(
         @Body authLoginBody: LoginBody
     ) : Call<LoginResponse>
+
 
 }

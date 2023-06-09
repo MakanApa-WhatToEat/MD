@@ -11,10 +11,12 @@ import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.makanapa.api.LoginBody
 import com.example.makanapa.databinding.ActivityLoginBinding
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
+import com.example.makanapa.view.camera.CameraMainActivity
 import com.example.makanapa.view.test.TestActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -50,9 +52,11 @@ class LoginActivity : AppCompatActivity() {
                    if(it.message == "Login Berhasil!"){
                        showLoading(false)
                        sharedPreferencesManager.saveToken(it.data.accessToken, it.data.username, it.data.email)
-                       startActivity(Intent(this, TestActivity::class.java))
+                       startActivity(Intent(this, CameraMainActivity::class.java))
                        finish()
-
+                   }else{
+                       showLoading(false)
+                       Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show()
                    }
                }
            }

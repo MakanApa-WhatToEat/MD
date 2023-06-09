@@ -8,6 +8,7 @@ import android.os.Looper
 import android.util.Log
 import com.example.makanapa.databinding.ActivitySplashBinding
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
+import com.example.makanapa.view.camera.CameraMainActivity
 import com.example.makanapa.view.test.TestActivity
 import com.example.makanapa.view.welcome.WelcomeActivity
 
@@ -38,7 +39,7 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }else{
             Log.d("TAG", sharedPreferencesManager.getToken()!!)
-            val intent = Intent(this@SplashActivity, TestActivity::class.java)
+            val intent = Intent(this@SplashActivity, CameraMainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             finish()

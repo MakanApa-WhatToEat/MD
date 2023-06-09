@@ -30,6 +30,8 @@ class SharedPreferencesManager(context : Context) {
 
     fun clearToken(){
         editor.remove("accessToken")
+        editor.remove("username")
+        editor.remove("email")
         editor.apply()
     }
 }
