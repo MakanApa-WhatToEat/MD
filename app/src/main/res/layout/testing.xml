@@ -54,9 +54,9 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tv_username_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Username Can't be Empty"
             android:layout_marginStart="22dp"
             android:layout_marginTop="5dp"
             android:textColor="#F30D0D"
@@ -96,9 +96,9 @@
             />
 
         <TextView
-            android:id="@+id/tv_email_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Email Can't be Empty"
             android:layout_marginStart="22dp"
             android:layout_marginTop="5dp"
             android:textColor="#F30D0D"
@@ -120,42 +120,41 @@
         android:orientation="vertical">
 
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+       <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
 
-            >
-            <EditText
-                android:id="@+id/et_register_password"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:background="@drawable/edit_text_background"
-                android:drawableLeft="@drawable/ic_lock"
-                android:drawablePadding="6dp" />
+           >
+           <EditText
+               android:id="@+id/et_register_password"
+               android:layout_width="match_parent"
+               android:layout_height="48dp"
+               android:layout_marginStart="20dp"
+               android:layout_marginEnd="20dp"
+               android:paddingLeft="10dp"
+               android:paddingRight="10dp"
+               android:hint="Password"
+               android:inputType="textPassword"
+               android:background="@drawable/edit_text_background"
+               android:drawableLeft="@drawable/ic_lock"
+               android:drawablePadding="6dp" />
 
-            <ImageButton
-                android:id="@+id/btn_toggle_password"
-                android:layout_width="64dp"
-
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/et_register_password"
-                android:layout_alignBottom="@+id/et_register_password"
-                android:layout_alignTop="@+id/et_register_password"
-                android:layout_marginRight="2dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/visibility_grey" />
-        </RelativeLayout>
+           <ImageButton
+               android:id="@+id/btn_toggle_password"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignEnd="@+id/et_register_password"
+               android:layout_alignBottom="@+id/et_register_password"
+               android:layout_alignTop="@+id/et_register_password"
+                android:layout_marginRight="10dp"
+               android:background="@android:color/transparent"
+               android:src="@drawable/visibility_grey" />
+       </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_password_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Password Can't be Empty"
             android:layout_marginStart="22dp"
             android:layout_marginTop="5dp"
             android:textColor="#F30D0D"

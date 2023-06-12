@@ -41,6 +41,7 @@ import retrofit2.Response
 
 import java.io.File
 import java.lang.Exception
+import java.util.Locale
 
 
 class CameraMainActivity : AppCompatActivity() {
@@ -172,7 +173,8 @@ class CameraMainActivity : AppCompatActivity() {
                 ) {
                     if(response.isSuccessful){
                         Log.d("TAG", response.body().toString())
-                        NodeApiConfig.getApiService().getRecipe(response.body()?.prediction.toString().toLowerCase()).enqueue(object : Callback<List<NodeRecipeResponseItem>>{
+                        NodeApiConfig.getApiService().getRecipe(response.body()?.prediction.toString()
+                            .lowercase(Locale.getDefault())).enqueue(object : Callback<List<NodeRecipeResponseItem>>{
                             override fun onResponse(
                                 call: Call<List<NodeRecipeResponseItem>>,
                                 response: Response<List<NodeRecipeResponseItem>>

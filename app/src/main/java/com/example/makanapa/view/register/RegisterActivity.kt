@@ -6,10 +6,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.makanapa.R
 import com.example.makanapa.api.AuthBody
 import com.example.makanapa.databinding.ActivityRegisterBinding
 import com.example.makanapa.view.login.LoginActivity
@@ -31,6 +36,7 @@ class RegisterActivity : AppCompatActivity() {
 
         playAnimation()
         validateButtonLogin()
+        setPasswordVisibility()
 
         binding.etRegisterEmail.addTextChangedListener(createEmailTextWatcher())
         binding.etRegisterPassword.addTextChangedListener(createPasswordTextWatcher())
@@ -60,13 +66,14 @@ class RegisterActivity : AppCompatActivity() {
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         override fun afterTextChanged(s: Editable?) {
             val emailText = s.toString().trim()
-            if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
-                binding.etRegisterEmail.error = "Invalid Email address"
+            if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches() && emailText.isNotEmpty()) {
+                binding.tvEmailError.text = "Invalid Email address"
                 isEmailValid = false
             } else if (emailText.isEmpty()) {
-                binding.etRegisterEmail.error = "Email can't be empty"
+                binding.tvEmailError.text = "Email can't be empty"
                 isEmailValid = false
             } else {
+                binding.tvEmailError.text = ""
                 isEmailValid = true
             }
         }
@@ -77,12 +84,13 @@ class RegisterActivity : AppCompatActivity() {
         override fun afterTextChanged(s: Editable?) {
             val passText = s.toString().trim()
             if (passText.length in 1..7) {
-                binding.etRegisterPassword.error = "Password can't be less than 8 chars"
+                binding.tvPasswordError.text = "Password can't be less than 8 characters"
                 isPasswordValid = false
             } else if (passText.isEmpty()) {
-                binding.etRegisterPassword.error = "Password can't be empty"
+                binding.tvPasswordError.text = "Password can't be empty"
                 isPasswordValid = false
             } else {
+                binding.tvPasswordError.text = ""
                 isPasswordValid = true
             }
         }
@@ -112,6 +120,24 @@ class RegisterActivity : AppCompatActivity() {
             binding.pbProgressBar.visibility = View.GONE
         }
     }
+
+
+    private fun setPasswordVisibility() {
+        var isVisible = false
+        binding.btnTogglePassword.setOnClickListener {
+            isVisible = !isVisible
+
+            if (isVisible) {
+                binding.btnTogglePassword.setImageResource(R.drawable.baseline_visibility_off_24)
+                binding.etRegisterPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                binding.btnTogglePassword.setImageResource(R.drawable.visibility_grey)
+                binding.etRegisterPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+            binding.etRegisterPassword.setSelection(binding.etRegisterPassword.text.length)
+        }
+    }
+
 
 
 

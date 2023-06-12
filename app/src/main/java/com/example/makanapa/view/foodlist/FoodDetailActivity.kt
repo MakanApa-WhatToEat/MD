@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.makanapa.databinding.ActivityFoodDetailBinding
+import java.util.Locale
 
 class FoodDetailActivity : AppCompatActivity() {
 
@@ -23,7 +24,11 @@ class FoodDetailActivity : AppCompatActivity() {
         val foodIngredients = intent.getStringExtra(EXTRA_INGREDIENTS)
 
 
-        binding.tvDetailFoodName.text = foodName?.capitalize()
+        binding.tvDetailFoodName.text = foodName?.replaceFirstChar {
+            if (it.isLowerCase()) it.titlecase(
+                Locale.getDefault()
+            ) else it.toString()
+        }
         binding.tvDetailFoodKcal.text = "$foodKcal KCal"
         binding.tvDetailFoodCategory.text = foodCategory
         binding.tvDetailFoodCookingTime.text = foodCoockingTime

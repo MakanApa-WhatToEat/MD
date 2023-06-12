@@ -25,7 +25,7 @@ class FoodResultListAdapter(private val foodResultList : ArrayList<NodeRecipeRes
              fun bind(foodList : NodeRecipeResponseItem){
                 binding.apply {
                         tvFoodName.text = foodList.menu
-                        tvFoodKcal.text = "${foodList.kcal.toString()} KCal"
+                        tvFoodKcal.text = "${foodList.kcal} KCal"
                 }
              }
     }
