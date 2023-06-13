@@ -5,7 +5,7 @@
         <!--AppBar-->
         <item name="colorPrimary">#099963</item>
         <!--StatusBar Color-->
-        <item name="colorPrimaryVariant">#4AAA61</item>
+        <item name="colorPrimaryVariant">#099963</item>
         <item name="colorOnPrimary">@color/white</item>
 
 
