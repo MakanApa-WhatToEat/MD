@@ -38,7 +38,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:background="@drawable/splashlogo"
+        android:background="@drawable/splashlogo_1"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

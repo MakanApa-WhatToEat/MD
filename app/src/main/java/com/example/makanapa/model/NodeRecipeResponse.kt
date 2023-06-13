@@ -9,16 +9,21 @@ data class NodeRecipeResponse(
 
 @Parcelize
 data class NodeRecipeResponseItem(
-	@SerializedName("_id")
-	val id: String,
-	@SerializedName("menu")
-	val menu: String,
-	@SerializedName("cooking_time")
-	val cookingTime: String,
-	@SerializedName("kcal")
+	@field:SerializedName("kcal")
 	val kcal: Int,
-	@SerializedName("category")
-	val category: String,
-	@SerializedName("ingredients")
-	val ingredients: String
+
+	@field:SerializedName("recipe")
+	val recipe: String,
+
+	@field:SerializedName("cooking_time")
+	val cookingTime: String,
+
+	@field:SerializedName("ingredients")
+	val ingredients: ArrayList<String?>,
+
+	@field:SerializedName("_id")
+	val id: String,
+
+	@field:SerializedName("menu")
+	val menu: String
 ) : Parcelable

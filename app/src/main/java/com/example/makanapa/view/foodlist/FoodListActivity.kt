@@ -19,7 +19,7 @@ class FoodListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        supportActionBar?.title = "FoodList"
         binding = ActivityFoodListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -44,8 +44,8 @@ class FoodListActivity : AppCompatActivity() {
                 intent.putExtra(FoodDetailActivity.EXTRA_MENU, data.menu)
                 intent.putExtra(FoodDetailActivity.EXTRA_COOKING_TIME, data.cookingTime)
                 intent.putExtra(FoodDetailActivity.EXTRA_KCAL, data.kcal.toString())
-                intent.putExtra(FoodDetailActivity.EXTRA_CATEGORY, data.category)
-                intent.putExtra(FoodDetailActivity.EXTRA_INGREDIENTS, data.ingredients)
+                intent.putExtra(FoodDetailActivity.EXTRA_RECIPE, data.recipe)
+                intent.putStringArrayListExtra(FoodDetailActivity.EXTRA_INGREDIENTS, data.ingredients)
                 startActivity(intent)
             }
 

@@ -9,7 +9,6 @@ import android.util.Log
 import com.example.makanapa.databinding.ActivitySplashBinding
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
 import com.example.makanapa.view.camera.CameraMainActivity
-import com.example.makanapa.view.test.TestActivity
 import com.example.makanapa.view.welcome.WelcomeActivity
 
 class SplashActivity : AppCompatActivity() {

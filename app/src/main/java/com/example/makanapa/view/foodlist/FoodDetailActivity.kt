@@ -13,29 +13,40 @@ class FoodDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        supportActionBar?.title = "FoodDetail"
         binding = ActivityFoodDetailBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
         val foodName = intent.getStringExtra(EXTRA_MENU)
         val foodKcal = intent.getStringExtra(EXTRA_KCAL)
         val foodCoockingTime = intent.getStringExtra(EXTRA_COOKING_TIME)
-        val foodCategory = intent.getStringExtra(EXTRA_CATEGORY)
-        val foodIngredients = intent.getStringExtra(EXTRA_INGREDIENTS)
+        val foodRecipe = intent.getStringExtra(EXTRA_RECIPE)
+        val foodIngredients = intent.getStringArrayListExtra(EXTRA_INGREDIENTS)
 
 
-        binding.tvDetailFoodName.text = foodName?.replaceFirstChar {
-            if (it.isLowerCase()) it.titlecase(
-                Locale.getDefault()
-            ) else it.toString()
-        }
+        binding.tvDetailFoodName.text = capitalizeFirstLetter(foodName.toString())
         binding.tvDetailFoodKcal.text = "$foodKcal KCal"
-        binding.tvDetailFoodCategory.text = foodCategory
+//        binding.tvDetailFoodCategory.text = foodCategory
+        binding.tvRecipe.text = foodRecipe
         binding.tvDetailFoodCookingTime.text = foodCoockingTime
-        binding.tvDetailFoodStepByStep.text = foodIngredients
+
+        var tempIngredients = ""
+
+        foodIngredients?.forEach {
+            tempIngredients = "$tempIngredients$it\n"
+        }
+
+        binding.tvDetailFoodStepByStep.text = tempIngredients
 
 
 
+
+    }
+
+    fun capitalizeFirstLetter(sentence: String): String {
+        val words = sentence.split(" ")
+        val capitalizedWords = words.map { it.replaceFirstChar { char -> char.uppercase() } }
+        return capitalizedWords.joinToString(" ")
     }
 
 
@@ -44,8 +55,9 @@ class FoodDetailActivity : AppCompatActivity() {
         const val EXTRA_MENU = "extra_menu"
         const val EXTRA_COOKING_TIME = "extra_cooking_time"
         const val EXTRA_KCAL = "extra_kcal"
-        const val EXTRA_CATEGORY = "extra_category"
+        const val EXTRA_RECIPE = "extra_recipe"
         const val EXTRA_INGREDIENTS = "extra_ingredients"
+        const val EXTRA_CATEGORY = "extra_category"
     }
 
 }

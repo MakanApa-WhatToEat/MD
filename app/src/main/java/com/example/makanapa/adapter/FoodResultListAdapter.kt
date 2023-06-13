@@ -24,11 +24,20 @@ class FoodResultListAdapter(private val foodResultList : ArrayList<NodeRecipeRes
     inner class ViewHolder(private val  binding : FoodlistItemBinding) : RecyclerView.ViewHolder(binding.root){
              fun bind(foodList : NodeRecipeResponseItem){
                 binding.apply {
-                        tvFoodName.text = foodList.menu
+                        tvFoodName.text = capitalizeFirstLetter(foodList.menu)
                         tvFoodKcal.text = "${foodList.kcal} KCal"
                 }
              }
     }
+
+    fun capitalizeFirstLetter(sentence: String): String {
+        val words = sentence.split(" ")
+        val capitalizedWords = words.map { it.replaceFirstChar { char -> char.uppercase() } }
+        return capitalizedWords.joinToString(" ")
+    }
+
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = FoodlistItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)

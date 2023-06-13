@@ -85,7 +85,7 @@ class CameraMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.title = "Home"
         sharedPreferenceManager = SharedPreferencesManager(this)
         viewModel = ViewModelProvider(this)[CameraMainViewModel::class.java]
         viewModelX = ViewModelProvider(this)[CameraMainXViewModel::class.java]
@@ -239,6 +239,11 @@ class CameraMainActivity : AppCompatActivity() {
         true
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
     }
 
 }
