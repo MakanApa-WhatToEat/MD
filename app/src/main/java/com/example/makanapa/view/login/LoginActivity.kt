@@ -27,7 +27,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private var isEmailValid = false
     private var isPasswordValid = false
-    private lateinit var viewModel: LoginViewModel
     private lateinit var sharedPreferencesManager: SharedPreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
         validateButtonLogin()
         sharedPreferencesManager = SharedPreferencesManager(this)
 
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         binding.etLoginEmail.addTextChangedListener(createEmailTextWatcher())
         binding.etLoginPassword.addTextChangedListener(createPasswordTextWatcher())
         setPasswordVisibility()
