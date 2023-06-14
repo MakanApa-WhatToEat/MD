@@ -18,6 +18,7 @@ import com.example.makanapa.databinding.ActivityLoginBinding
 import com.example.makanapa.model.LoginResponse
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
 import com.example.makanapa.view.camera.CameraMainActivity
+import com.example.makanapa.view.homesearch.HomeSearchActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
                               //success
                                 showLoading(false)
                                 sharedPreferencesManager.saveToken(response.data.accessToken, response.data.username, response.data.email)
-                                startActivity(Intent(applicationContext, CameraMainActivity::class.java))
+                                startActivity(Intent(applicationContext, HomeSearchActivity::class.java))
                                 finish()
                           }else{
                                 showLoading(false)

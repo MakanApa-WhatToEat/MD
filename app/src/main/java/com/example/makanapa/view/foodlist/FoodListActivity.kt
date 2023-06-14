@@ -10,6 +10,7 @@ import com.example.makanapa.R
 import com.example.makanapa.adapter.FoodResultListAdapter
 import com.example.makanapa.databinding.ActivityFoodListBinding
 import com.example.makanapa.view.camera.CameraMainActivity
+import com.example.makanapa.view.homesearch.HomeSearchActivity
 
 class FoodListActivity : AppCompatActivity() {
 
@@ -54,7 +55,7 @@ class FoodListActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        val intent = Intent(this@FoodListActivity, CameraMainActivity::class.java)
+        val intent = Intent(this@FoodListActivity, HomeSearchActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         finish()

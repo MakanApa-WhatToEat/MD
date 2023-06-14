@@ -80,8 +80,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\User\Downloads\splashlogo.jpeg" />
-                                                <entry key="scalingPercent" value="70" />
+                                                <entry key="imagePath" value="C:\Users\User\Downloads\splash_logo-removebg-preview.png" />
+                                                <entry key="scalingPercent" value="61" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -114,7 +114,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="939a72" />
+                                      <entry key="backgroundColor" value="ffffff" />
                                       <entry key="legacyIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
@@ -309,7 +309,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/visibility_off/baseline_visibility_off_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/camera_alt/baseline_camera_alt_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -319,8 +319,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="6e6e6e" />
-                            <entry key="outputName" value="baseline_visibility_off_24" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_camera" />
                             <entry key="sourceFile" value="C:\Users\User\Documents\projects\capstone\MD" />
                           </map>
                         </option>
