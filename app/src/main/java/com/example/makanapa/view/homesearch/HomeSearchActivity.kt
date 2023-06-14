@@ -3,10 +3,13 @@ package com.example.makanapa.view.homesearch
 import NodeRecipeResponseItem
 import android.Manifest
 import android.content.Intent
+import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
@@ -14,6 +17,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +27,7 @@ import com.example.makanapa.api.NodeApiConfig
 import com.example.makanapa.databinding.ActivityHomeSearchBinding
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
 import com.example.makanapa.view.camera.CameraXActivity
+import com.example.makanapa.view.camera.uriToFile
 import com.example.makanapa.view.foodlist.FoodDetailActivity
 import com.example.makanapa.view.foodlist.FoodListActivity
 import com.example.makanapa.view.test.TestActivity
@@ -64,7 +69,7 @@ class HomeSearchActivity : AppCompatActivity() {
         binding = ActivityHomeSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnCamera.setOnClickListener {
-            startCameraX()
+            showOptionsDialog()
         }
 
         binding.etSearch.setOnKeyListener { _, keyCode, event ->
@@ -77,6 +82,21 @@ class HomeSearchActivity : AppCompatActivity() {
             return@setOnKeyListener false
         }
 
+    }
+
+    private fun showOptionsDialog() {
+        val options = arrayOf("Gallery", "Camera")
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Choose an option")
+            .setItems(options) { dialog, which ->
+                when (which) {
+                    0 -> startGallery()
+                    1 -> startCameraX()
+                }
+            }
+            .setNegativeButton("Cancel", null)
+            .create()
+            .show()
     }
 
 
@@ -108,6 +128,29 @@ class HomeSearchActivity : AppCompatActivity() {
         launcherIntentCameraX.launch(intent)
     }
 
+    private fun startGallery() {
+        val intent = Intent()
+        intent.action = ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
+    }
+
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val selectedImg = result.data?.data as Uri
+            selectedImg.let { uri ->
+                val myFile = uriToFile(uri, this@HomeSearchActivity)
+                getFile = myFile
+//                    binding.ivImagePreview.setImageURI(uri)
+                val intent = Intent(this, TestActivity::class.java)
+                intent.putExtra("picture", myFile.path)
+                startActivity(intent)
+            }
+        }
+    }
 
     private val launcherIntentCameraX =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
