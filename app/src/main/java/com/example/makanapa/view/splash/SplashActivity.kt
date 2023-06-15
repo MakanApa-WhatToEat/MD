@@ -8,10 +8,8 @@ import android.os.Looper
 import android.util.Log
 import com.example.makanapa.databinding.ActivitySplashBinding
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
-import com.example.makanapa.view.camera.CameraMainActivity
 import com.example.makanapa.view.homesearch.HomeSearchActivity
-import com.example.makanapa.view.test.TestActivity
-import com.example.makanapa.view.welcome.WelcomeActivity
+import com.example.makanapa.view.welcome.SliderActivity
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySplashBinding
@@ -32,9 +30,9 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun checkTokenExist(){
-        if(sharedPreferencesManager.getToken() == null){
+        if (sharedPreferencesManager.getToken() == null) {
             Log.d("TAG", "No Token")
-            val intent = Intent(this@SplashActivity, WelcomeActivity::class.java)
+            val intent = Intent(this@SplashActivity, SliderActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             finish()

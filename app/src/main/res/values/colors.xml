@@ -9,6 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green_bad">#099963</color>
     <color name="green_bad1">#15D88F</color>
+    <!-- Selected dot color -->
+    <color name="selected_dot_color">#099963</color>
+    <!-- Unselected dot color -->
+    <color name="unselected_dot_color">#808080</color>
 
 
 </resources>

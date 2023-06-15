@@ -42,8 +42,15 @@
             android:name=".view.main.MainActivity"
             android:exported="false" />
         <activity
+            android:name=".view.welcome.SliderActivity"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.welcome.WelcomeActivity"
-            android:exported="false">
+            android:noHistory="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

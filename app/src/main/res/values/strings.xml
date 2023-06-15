@@ -3,9 +3,13 @@
     <string name="welcome">Welcome to</string>
     <string name="makan">Makan</string>
     <string name="apa">Apa!</string>
+    <string name="start">Hello!</string>
+    <string name="finish">Let\'s start our journey!</string>
+
     <string name="welcome_description">MakanApa is an app that revolutionizes your dining experience. With its cutting-edge ingredient scanning technology, MakanApa provides personalized food recommendations, empowering you to explore exciting flavors and discover new culinary delights.</string>
     <string name="login_button_name">Login</string>
     <string name="register_button_name">Sign Up</string>
     <string name="register_title">Daftarkan diri Anda!</string>
     <string name="login_title">Silahkan Login</string>
+
 </resources>
