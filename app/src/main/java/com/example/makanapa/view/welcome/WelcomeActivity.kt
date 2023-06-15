@@ -13,7 +13,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.makanapa.R
 import com.example.makanapa.adapter.SliderAdapter
 import com.example.makanapa.databinding.ActivityWelcomeBinding
-import com.example.makanapa.databinding.ActivityWelcomeCombinedBinding
 import com.example.makanapa.databinding.SlideLayoutBinding
 import com.example.makanapa.view.login.LoginActivity
 import com.example.makanapa.view.register.RegisterActivity
