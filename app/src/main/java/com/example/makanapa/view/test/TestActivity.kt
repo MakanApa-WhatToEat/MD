@@ -50,7 +50,7 @@ class TestActivity : AppCompatActivity() {
 
         if (file != null) {
 
-            val file = reduceFileImage(file as File)
+            val file = reduceFileImage(file)
             val requestImageFile = file.asRequestBody("image/*".toMediaType())
             val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
                 "image",

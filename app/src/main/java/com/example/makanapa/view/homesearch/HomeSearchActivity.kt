@@ -16,7 +16,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.makanapa.R
 import com.example.makanapa.adapter.FoodResultListAdapter
 import com.example.makanapa.api.NodeApiConfig
@@ -24,20 +23,22 @@ import com.example.makanapa.databinding.ActivityHomeSearchBinding
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
 import com.example.makanapa.view.camera.CameraXActivity
 import com.example.makanapa.view.foodlist.FoodDetailActivity
-import com.example.makanapa.view.foodlist.FoodListActivity
+import com.example.makanapa.view.foodsearched.FoodSearchedActivity
+import com.example.makanapa.view.login.LoginActivity
 import com.example.makanapa.view.test.TestActivity
+import com.example.makanapa.view.userpage.UserPageActivity
 import com.example.makanapa.view.welcome.WelcomeActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
+import java.lang.Exception
 import java.util.Locale
 
 class HomeSearchActivity : AppCompatActivity() {
 
     private var getFile: File? = null
     lateinit var binding: ActivityHomeSearchBinding
-    private lateinit var adapter: FoodResultListAdapter
     private lateinit var sharedPreferenceManager: SharedPreferencesManager
 
     companion object {
@@ -61,6 +62,8 @@ class HomeSearchActivity : AppCompatActivity() {
             )
         }
 
+        supportActionBar?.hide()
+
         binding = ActivityHomeSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnCamera.setOnClickListener {
@@ -68,16 +71,36 @@ class HomeSearchActivity : AppCompatActivity() {
         }
 
         binding.etSearch.setOnKeyListener { _, keyCode, event ->
+            val searchResult = binding.etSearch.text.toString()
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                searchUser()
-                binding.ivSearchText.visibility = View.GONE
                 Log.d("TAG", "event Clicked")
+                searchFood(searchResult)
                 return@setOnKeyListener true
             }
             return@setOnKeyListener false
         }
 
+        binding.cardAyam.setOnClickListener { searchFood("ayam") }
+        binding.cardKambing.setOnClickListener {searchFood("kambing")}
+        binding.cardLele.setOnClickListener { searchFood("lele") }
+        binding.cardSapi.setOnClickListener { searchFood("sapi") }
+        binding.cardTahu.setOnClickListener { searchFood("tahu") }
+        binding.cardTelur.setOnClickListener { searchFood("telur") }
+        binding.cardTempe.setOnClickListener { searchFood("tempe") }
+        binding.cardUdang.setOnClickListener { searchFood("udang") }
+
+        binding.btnUser.setOnClickListener {
+            startActivity(Intent(this@HomeSearchActivity, UserPageActivity::class.java))
+
+        }
+
+
+
+
+
     }
+
+
 
 
     override fun onRequestPermissionsResult(
@@ -130,95 +153,27 @@ class HomeSearchActivity : AppCompatActivity() {
         }
 
 
-    private fun searchUser() {
-        val searchResult = binding.etSearch.text.toString()
+    private fun searchFood(searchResult : String) {
+
         if (searchResult.isEmpty()) {
             return
         } else {
-            showLoading(true)
-            NodeApiConfig.getApiService().getRecipe(
-                searchResult
-                    .lowercase(Locale.getDefault())
-            ).enqueue(object :
-                Callback<List<NodeRecipeResponseItem>> {
-                override fun onResponse(
-                    call: Call<List<NodeRecipeResponseItem>>,
-                    response: Response<List<NodeRecipeResponseItem>>
-                ) {
-                    if (response.isSuccessful) {
-                        showLoading(false)
-                        if(response.body() != null){
-                            setAdapter(ArrayList(response.body()))
-                        }else{
-                            binding.ivSearchTextNoData.visibility = View.VISIBLE
-                        }
-                    } else {
-                        showLoading(false)
-                        Log.d("TAG", response.errorBody().toString())
-                    }
-                }
 
-                override fun onFailure(
-                    call: Call<List<NodeRecipeResponseItem>>,
-                    t: Throwable
-                ) {
-                    showLoading(false)
-                    Log.d("TAG", t.message.toString())
-                }
-
-            })
-        }
-    }
-
-    private fun showLoading(state: Boolean) {
-        if (state) {
-            binding.pbProgressBar.visibility = View.VISIBLE
-        } else {
-            binding.pbProgressBar.visibility = View.GONE
-        }
-    }
-
-
-    private fun setAdapter(foodList: ArrayList<NodeRecipeResponseItem>) {
-        adapter = FoodResultListAdapter(foodList)
-        binding.rvFoodList.layoutManager = LinearLayoutManager(this@HomeSearchActivity)
-        binding.rvFoodList.adapter = adapter
-        adapter.setOnClickCallBack(object : FoodResultListAdapter.OnItemClickCallBack {
-            override fun onItemClicked(data: NodeRecipeResponseItem) {
-                val intent = Intent(this@HomeSearchActivity, FoodDetailActivity::class.java)
-                intent.putExtra(FoodDetailActivity.EXTRA_ID, data.id)
-                intent.putExtra(FoodDetailActivity.EXTRA_MENU, data.menu)
-                intent.putExtra(FoodDetailActivity.EXTRA_COOKING_TIME, data.cookingTime)
-                intent.putExtra(FoodDetailActivity.EXTRA_KCAL, data.kcal.toString())
-                intent.putExtra(FoodDetailActivity.EXTRA_RECIPE, data.recipe)
-                intent.putStringArrayListExtra(
-                    FoodDetailActivity.EXTRA_INGREDIENTS,
-                    data.ingredients
-                )
+                val intent = Intent(this@HomeSearchActivity, FoodSearchedActivity::class.java)
+                intent.putExtra(FoodSearchedActivity.EXTRA_KEY_SEARCHED, searchResult)
                 startActivity(intent)
-            }
 
-        })
+        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        sharedPreferenceManager.clearToken()
-        startActivity(Intent(this, WelcomeActivity::class.java))
-        finish()
-        true
 
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onBackPressed() {
         super.onBackPressed()
         finishAffinity()
     }
+
 
 
 }

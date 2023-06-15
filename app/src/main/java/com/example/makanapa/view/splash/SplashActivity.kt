@@ -8,6 +8,7 @@ import android.os.Looper
 import android.util.Log
 import com.example.makanapa.databinding.ActivitySplashBinding
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
+import com.example.makanapa.view.MockUpActivity
 import com.example.makanapa.view.camera.CameraMainActivity
 import com.example.makanapa.view.homesearch.HomeSearchActivity
 import com.example.makanapa.view.test.TestActivity
