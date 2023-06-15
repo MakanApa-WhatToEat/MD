@@ -45,7 +45,11 @@ class RegisterActivity : AppCompatActivity() {
         binding.etRegisterEmail.addTextChangedListener(createEmailTextWatcher())
         binding.etRegisterPassword.addTextChangedListener(createPasswordTextWatcher())
         binding.etRegisterName.addTextChangedListener(createUsernameTextWatcher())
-        supportActionBar?.title = "Sign Up"
+        supportActionBar?.hide()
+
+        binding.tvMoveRegister.setOnClickListener {
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+        }
     }
 
     private fun validateButtonLogin() {

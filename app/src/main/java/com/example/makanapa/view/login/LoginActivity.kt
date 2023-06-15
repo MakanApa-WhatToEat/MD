@@ -19,6 +19,7 @@ import com.example.makanapa.model.LoginResponse
 import com.example.makanapa.sharedpreference.SharedPreferencesManager
 import com.example.makanapa.view.camera.CameraMainActivity
 import com.example.makanapa.view.homesearch.HomeSearchActivity
+import com.example.makanapa.view.register.RegisterActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,7 +41,10 @@ class LoginActivity : AppCompatActivity() {
         binding.etLoginEmail.addTextChangedListener(createEmailTextWatcher())
         binding.etLoginPassword.addTextChangedListener(createPasswordTextWatcher())
         setPasswordVisibility()
-        supportActionBar?.title = "Login"
+        supportActionBar?.hide()
+        binding.tvMoveRegister.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+        }
     }
 
     private fun validateButtonLogin() {
