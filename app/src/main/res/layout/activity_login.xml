@@ -36,7 +36,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textColor="@color/green_bad1"
+                android:textColor="@color/green_bad"
                 android:textSize="40dp"
                 />
 
@@ -118,7 +118,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/green_bad1"
+                android:backgroundTint="@color/green_bad"
                 android:text="@string/login_button_name"
 
                 />
@@ -140,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="70dp"
         android:text="Don't have an account? Register here"
-        android:textColor="@color/green_bad1"
+        android:textColor="@color/green_bad"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
 

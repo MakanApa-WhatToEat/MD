@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.makanapa.R
 import com.example.makanapa.adapter.SliderAdapter
+import com.example.makanapa.view.login.LoginActivity
 
 
 class SliderActivity : AppCompatActivity() {
@@ -91,7 +92,7 @@ class SliderActivity : AppCompatActivity() {
     }
 
     private fun startWelcomeActivity() {
-        val intent = Intent(this, WelcomeActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
