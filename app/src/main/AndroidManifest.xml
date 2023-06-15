@@ -21,6 +21,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.userpage.UserPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.foodsearched.FoodSearchedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MockUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.test.TestActivity"
             android:exported="false" />
         <activity
